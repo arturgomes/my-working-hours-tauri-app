@@ -1,6 +1,5 @@
 // City to timezone mapping for search functionality
 export const CITY_TO_TIMEZONE_MAP: Record<string, string> = {
-  // United States
   'new york': 'America/New_York',
   'boston': 'America/New_York',
   'miami': 'America/New_York',
@@ -20,8 +19,6 @@ export const CITY_TO_TIMEZONE_MAP: Record<string, string> = {
   'anchorage': 'America/Anchorage',
   'adak': 'America/Adak',
   'honolulu': 'Pacific/Honolulu',
-
-  // Canada
   'toronto': 'America/Toronto',
   'montreal': 'America/Montreal',
   'halifax': 'America/Halifax',
@@ -32,8 +29,6 @@ export const CITY_TO_TIMEZONE_MAP: Record<string, string> = {
   'vancouver': 'America/Vancouver',
   "st. john's": 'America/St_Johns',
   'st johns': 'America/St_Johns',
-
-  // Europe
   'london': 'Europe/London',
   'edinburgh': 'Europe/London',
   'belfast': 'Europe/London',
@@ -84,14 +79,10 @@ export const CITY_TO_TIMEZONE_MAP: Record<string, string> = {
   'kyiv': 'Europe/Kiev',
   'kiev': 'Europe/Kiev',
   'moscow': 'Europe/Moscow',
-
-  // Other Americas
   'mexico city': 'America/Mexico_City',
   'são paulo': 'America/Sao_Paulo',
   'sao paulo': 'America/Sao_Paulo',
   'buenos aires': 'America/Buenos_Aires',
-
-  // Asia
   'tokyo': 'Asia/Tokyo',
   'seoul': 'Asia/Seoul',
   'shanghai': 'Asia/Shanghai',
@@ -108,17 +99,11 @@ export const CITY_TO_TIMEZONE_MAP: Record<string, string> = {
   'baghdad': 'Asia/Baghdad',
   'riyadh': 'Asia/Riyadh',
   'tel aviv': 'Asia/Tel_Aviv',
-
-  // Australia
   'sydney': 'Australia/Sydney',
   'melbourne': 'Australia/Melbourne',
   'brisbane': 'Australia/Brisbane',
   'perth': 'Australia/Perth',
-
-  // Pacific
   'auckland': 'Pacific/Auckland',
-
-  // Africa
   'cairo': 'Africa/Cairo',
   'lagos': 'Africa/Lagos',
   'nairobi': 'Africa/Nairobi',
@@ -126,7 +111,6 @@ export const CITY_TO_TIMEZONE_MAP: Record<string, string> = {
   'casablanca': 'Africa/Casablanca',
 };
 
-// Country to timezones mapping
 export const COUNTRY_TO_TIMEZONES_MAP: Record<string, string[]> = {
   'united states': ['America/New_York', 'America/Detroit', 'America/Chicago', 'America/Denver', 'America/Phoenix', 'America/Los_Angeles', 'America/Anchorage', 'America/Adak', 'Pacific/Honolulu'],
   'usa': ['America/New_York', 'America/Detroit', 'America/Chicago', 'America/Denver', 'America/Phoenix', 'America/Los_Angeles', 'America/Anchorage', 'America/Adak', 'Pacific/Honolulu'],
@@ -199,40 +183,39 @@ export const COUNTRY_TO_TIMEZONES_MAP: Record<string, string[]> = {
  */
 export function searchTimezones(query: string): string[] {
   const normalizedQuery = query.toLowerCase().trim();
+
+  if (!normalizedQuery) {
+    return [];
+  }
+
   const results = new Set<string>();
 
-  // Direct timezone match
   if (COMMON_TIMEZONES.includes(query)) {
     results.add(query);
   }
 
-  // Search in timezone names (partial match)
   COMMON_TIMEZONES.forEach(tz => {
     if (tz.toLowerCase().includes(normalizedQuery)) {
       results.add(tz);
     }
   });
 
-  // Search by city name
   const cityMatch = CITY_TO_TIMEZONE_MAP[normalizedQuery];
   if (cityMatch) {
     results.add(cityMatch);
   }
 
-  // Search in city names (partial match)
   Object.entries(CITY_TO_TIMEZONE_MAP).forEach(([city, tz]) => {
     if (city.includes(normalizedQuery)) {
       results.add(tz);
     }
   });
 
-  // Search by country
   const countryTimezones = COUNTRY_TO_TIMEZONES_MAP[normalizedQuery];
   if (countryTimezones) {
     countryTimezones.forEach(tz => results.add(tz));
   }
 
-  // Search in country names (partial match)
   Object.entries(COUNTRY_TO_TIMEZONES_MAP).forEach(([country, timezones]) => {
     if (country.includes(normalizedQuery)) {
       timezones.forEach(tz => results.add(tz));
@@ -267,7 +250,6 @@ export function getCountryForTimezone(timezone: string): string | undefined {
 
 // Static timezone data as fallback
 export const COMMON_TIMEZONES = [
-  // United States - Expanded
   'America/New_York',        // Eastern: New York, Boston, Miami, Atlanta, Philadelphia
   'America/Detroit',         // Eastern: Detroit (separate DST rules)
   'America/Chicago',         // Central: Chicago, Dallas, Houston
@@ -277,8 +259,6 @@ export const COMMON_TIMEZONES = [
   'America/Anchorage',       // Alaska: Anchorage
   'America/Adak',            // Hawaii-Aleutian: Aleutian Islands
   'Pacific/Honolulu',        // Hawaii: Honolulu
-
-  // Canada - Expanded
   'America/Toronto',         // Eastern: Toronto
   'America/Montreal',        // Eastern: Montreal
   'America/Halifax',         // Atlantic: Halifax
@@ -287,8 +267,6 @@ export const COMMON_TIMEZONES = [
   'America/Edmonton',        // Mountain: Edmonton, Calgary
   'America/Vancouver',       // Pacific: Vancouver
   'America/St_Johns',        // Newfoundland: St. John's
-
-  // Europe - Expanded
   'Europe/London',           // UK: London, Edinburgh, Belfast, Manchester
   'Europe/Dublin',           // Ireland: Dublin
   'Europe/Lisbon',           // Portugal: Lisbon, Porto
@@ -325,8 +303,6 @@ export const COMMON_TIMEZONES = [
   'America/Mexico_City',
   'America/Sao_Paulo',
   'America/Buenos_Aires',
-
-  // Asia
   'Asia/Tokyo',
   'Asia/Seoul',
   'Asia/Shanghai',
@@ -343,17 +319,11 @@ export const COMMON_TIMEZONES = [
   'Asia/Baghdad',
   'Asia/Riyadh',
   'Asia/Tel_Aviv',
-
-  // Australia
   'Australia/Sydney',
   'Australia/Melbourne',
   'Australia/Brisbane',
   'Australia/Perth',
-
-  // Pacific
   'Pacific/Auckland',
-
-  // Africa
   'Africa/Cairo',
   'Africa/Lagos',
   'Africa/Nairobi',
@@ -362,7 +332,6 @@ export const COMMON_TIMEZONES = [
 ];
 
 export const TIMEZONE_CITY_MAP: Record<string, { city: string; country: string }> = {
-  // United States
   'America/New_York': { city: 'New York', country: 'United States' },
   'America/Detroit': { city: 'Detroit', country: 'United States' },
   'America/Chicago': { city: 'Chicago', country: 'United States' },
@@ -372,8 +341,6 @@ export const TIMEZONE_CITY_MAP: Record<string, { city: string; country: string }
   'America/Anchorage': { city: 'Anchorage', country: 'United States' },
   'America/Adak': { city: 'Adak', country: 'United States' },
   'Pacific/Honolulu': { city: 'Honolulu', country: 'United States' },
-
-  // Canada
   'America/Toronto': { city: 'Toronto', country: 'Canada' },
   'America/Montreal': { city: 'Montreal', country: 'Canada' },
   'America/Halifax': { city: 'Halifax', country: 'Canada' },
@@ -382,8 +349,6 @@ export const TIMEZONE_CITY_MAP: Record<string, { city: string; country: string }
   'America/Edmonton': { city: 'Edmonton', country: 'Canada' },
   'America/Vancouver': { city: 'Vancouver', country: 'Canada' },
   'America/St_Johns': { city: 'St. John\'s', country: 'Canada' },
-
-  // Europe
   'Europe/London': { city: 'London', country: 'United Kingdom' },
   'Europe/Dublin': { city: 'Dublin', country: 'Ireland' },
   'Europe/Lisbon': { city: 'Lisbon', country: 'Portugal' },
@@ -415,13 +380,9 @@ export const TIMEZONE_CITY_MAP: Record<string, { city: string; country: string }
   'Europe/Sofia': { city: 'Sofia', country: 'Bulgaria' },
   'Europe/Kiev': { city: 'Kyiv', country: 'Ukraine' },
   'Europe/Moscow': { city: 'Moscow', country: 'Russia' },
-
-  // Other Americas
   'America/Mexico_City': { city: 'Mexico City', country: 'Mexico' },
   'America/Sao_Paulo': { city: 'São Paulo', country: 'Brazil' },
   'America/Buenos_Aires': { city: 'Buenos Aires', country: 'Argentina' },
-
-  // Asia
   'Asia/Tokyo': { city: 'Tokyo', country: 'Japan' },
   'Asia/Seoul': { city: 'Seoul', country: 'South Korea' },
   'Asia/Shanghai': { city: 'Shanghai', country: 'China' },
@@ -438,17 +399,11 @@ export const TIMEZONE_CITY_MAP: Record<string, { city: string; country: string }
   'Asia/Baghdad': { city: 'Baghdad', country: 'Iraq' },
   'Asia/Riyadh': { city: 'Riyadh', country: 'Saudi Arabia' },
   'Asia/Tel_Aviv': { city: 'Tel Aviv', country: 'Israel' },
-
-  // Australia
   'Australia/Sydney': { city: 'Sydney', country: 'Australia' },
   'Australia/Melbourne': { city: 'Melbourne', country: 'Australia' },
   'Australia/Brisbane': { city: 'Brisbane', country: 'Australia' },
   'Australia/Perth': { city: 'Perth', country: 'Australia' },
-
-  // Pacific
   'Pacific/Auckland': { city: 'Auckland', country: 'New Zealand' },
-
-  // Africa
   'Africa/Cairo': { city: 'Cairo', country: 'Egypt' },
   'Africa/Lagos': { city: 'Lagos', country: 'Nigeria' },
   'Africa/Nairobi': { city: 'Nairobi', country: 'Kenya' },

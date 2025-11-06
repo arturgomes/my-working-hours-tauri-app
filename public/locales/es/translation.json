@@ -1,0 +1,85 @@
+{
+	"header": {
+		"title": "Calculadora de Horarios de Trabajo",
+		"subtitle": "Calcula tu disponibilidad entre zonas horarias"
+	},
+	"footer": {
+		"builtWith": "Desarrollado con React 19, RTK Query y Ark UI",
+		"aboutApp": "Acerca de esta aplicación"
+	},
+	"theme": {
+		"switchToDark": "Cambiar a modo oscuro",
+		"switchToLight": "Cambiar a modo claro",
+		"toggleAriaLabel": "Cambiar a modo {mode}"
+	},
+	"workSchedule": {
+		"title": "Tu Horario de Trabajo",
+		"startTimeLabel": "Hora de Inicio",
+		"endTimeLabel": "Hora de Fin",
+		"autoSaveNote": "Los cambios se guardan automáticamente",
+		"overnightSupportNote": "Se admiten horarios nocturnos (ej: 22:00 - 06:00)"
+	},
+	"citySearch": {
+		"title": "Buscar Ubicación del Gerente",
+		"label": "Buscar Ubicación del Gerente",
+		"placeholder": "Buscar una ciudad...",
+		"managerPlaceholder": "Buscar la ciudad de tu gerente...",
+		"noResultsFound": "No se encontraron ciudades para \"{{query}}\"",
+		"startTyping": "Comienza a escribir para buscar ciudades...",
+		"searching": "Buscando...",
+		"selectedLabel": "Seleccionado:",
+		"showingCitiesCount": "Mostrando {{count}} ciudades principales del mundo",
+		"offlineMode": {
+			"title": "Usando datos sin conexión",
+			"description": "API no disponible, mostrando ciudades comunes"
+		},
+		"clearSelectedCity": "Limpiar ciudad seleccionada"
+	},
+	"availability": {
+		"title": "Resumen de Disponibilidad",
+		"selectLocationPrompt": "Por favor, selecciona la ubicación de tu gerente para ver la comparación de disponibilidad.",
+		"available": "Disponible",
+		"unavailable": "No disponible",
+		"nextAvailable": "Próxima disponibilidad: {{time}}",
+		"yourTime": "Tu Horario",
+		"managerTime": "Horario del Gerente",
+		"workHours": "Horario de trabajo: {{startTime}} - {{endTime}}",
+		"yourHoursThere": "Tu horario allí: {{startTime}} - {{endTime}}",
+		"quickCommunication": {
+			"title": "Comunicación Rápida",
+			"messagePrefix": "Estoy disponible desde",
+			"messageSuffix": "tu horario."
+		}
+	},
+	"timeDisplay": {
+		"yourLocalTime": "Tu Hora Local",
+		"cityTime": "Hora de {{city}}"
+	},
+	"validation": {
+		"invalidTimeFormat": "Por favor, ingresa una hora válida en formato HH:MM",
+		"invalidTime": "Por favor, ingresa una hora válida",
+		"endTimeDifferent": "La hora de fin debe ser diferente a la hora de inicio"
+	},
+	"common": {
+		"search": "Buscar",
+		"loading": "Cargando...",
+		"error": "Error",
+		"noData": "No hay datos disponibles",
+		"close": "Cerrar"
+	},
+	"accessibility": {
+		"searchIcon": "Buscar",
+		"loadingSpinner": "Cargando"
+	},
+	"about": {
+		"title": "Acerca de la Calculadora de Horarios de Trabajo",
+		"description": "Una aplicación web moderna para calcular y gestionar horarios de trabajo en diferentes zonas horarias. Esta herramienta ayuda a los usuarios a definir sus horas de trabajo y visualizar la disponibilidad en la zona horaria de su gerente, facilitando la coordinación del trabajo remoto.",
+		"features": "Características Principales",
+		"feature1": "Definir horario de trabajo semanal con horas de inicio y fin flexibles",
+		"feature2": "Buscar y seleccionar la ciudad/zona horaria del gerente con relojes en tiempo real",
+		"feature3": "Ver resumen de disponibilidad mostrando superposición entre horarios de trabajo",
+		"feature4": "Soporte multi-idioma con detección automática de idioma",
+		"feature5": "Modo claro y oscuro con diseño responsivo y enfoque mobile-first",
+		"techStack": "Stack Tecnológico"
+	}
+}

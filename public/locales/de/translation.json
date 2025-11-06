@@ -1,0 +1,85 @@
+{
+	"header": {
+		"title": "Arbeitsstunden-Rechner",
+		"subtitle": "Berechnen Sie Ihre Verfügbarkeit über Zeitzonen hinweg"
+	},
+	"footer": {
+		"builtWith": "Erstellt mit React 19, RTK Query und Ark UI",
+		"aboutApp": "Über diese App"
+	},
+	"theme": {
+		"switchToDark": "Zum dunklen Modus wechseln",
+		"switchToLight": "Zum hellen Modus wechseln",
+		"toggleAriaLabel": "Zum {mode} Modus wechseln"
+	},
+	"workSchedule": {
+		"title": "Ihr Arbeitsplan",
+		"startTimeLabel": "Startzeit",
+		"endTimeLabel": "Endzeit",
+		"autoSaveNote": "Änderungen werden automatisch gespeichert",
+		"overnightSupportNote": "Nachtschichten werden unterstützt (z.B. 22:00 - 06:00)"
+	},
+	"citySearch": {
+		"title": "Standort des Managers suchen",
+		"label": "Standort des Managers suchen",
+		"placeholder": "Nach einer Stadt suchen...",
+		"managerPlaceholder": "Nach der Stadt Ihres Managers suchen...",
+		"noResultsFound": "Keine Städte für \"{{query}}\" gefunden",
+		"startTyping": "Beginnen Sie zu tippen, um Städte zu suchen...",
+		"searching": "Suche läuft...",
+		"selectedLabel": "Ausgewählt:",
+		"showingCitiesCount": "Zeige {{count}} Großstädte weltweit",
+		"offlineMode": {
+			"title": "Offline-Daten werden verwendet",
+			"description": "API nicht verfügbar, zeige häufige Städte"
+		},
+		"clearSelectedCity": "Ausgewählte Stadt löschen"
+	},
+	"availability": {
+		"title": "Verfügbarkeits-Zusammenfassung",
+		"selectLocationPrompt": "Bitte wählen Sie den Standort Ihres Managers aus, um den Verfügbarkeitsvergleich zu sehen.",
+		"available": "Verfügbar",
+		"unavailable": "Nicht verfügbar",
+		"nextAvailable": "Nächste Verfügbarkeit: {{time}}",
+		"yourTime": "Ihre Zeit",
+		"managerTime": "Zeit des Managers",
+		"workHours": "Arbeitszeiten: {{startTime}} - {{endTime}}",
+		"yourHoursThere": "Ihre Zeiten dort: {{startTime}} - {{endTime}}",
+		"quickCommunication": {
+			"title": "Schnelle Kommunikation",
+			"messagePrefix": "Ich bin verfügbar von",
+			"messageSuffix": "Ihrer Zeit."
+		}
+	},
+	"timeDisplay": {
+		"yourLocalTime": "Ihre Ortszeit",
+		"cityTime": "{{city}} Zeit"
+	},
+	"validation": {
+		"invalidTimeFormat": "Bitte geben Sie eine gültige Zeit im Format HH:MM ein",
+		"invalidTime": "Bitte geben Sie eine gültige Zeit ein",
+		"endTimeDifferent": "Die Endzeit muss sich von der Startzeit unterscheiden"
+	},
+	"common": {
+		"search": "Suchen",
+		"loading": "Laden...",
+		"error": "Fehler",
+		"noData": "Keine Daten verfügbar",
+		"close": "Schließen"
+	},
+	"accessibility": {
+		"searchIcon": "Suchen",
+		"loadingSpinner": "Laden"
+	},
+	"about": {
+		"title": "Über den Arbeitsstunden-Rechner",
+		"description": "Eine moderne Webanwendung zur Berechnung und Verwaltung von Arbeitsplänen über verschiedene Zeitzonen hinweg. Dieses Tool hilft Benutzern dabei, ihre Arbeitszeiten zu definieren und die Verfügbarkeit in der Zeitzone ihres Managers zu visualisieren, wodurch die Koordination bei der Fernarbeit erleichtert wird.",
+		"features": "Hauptfunktionen",
+		"feature1": "Wöchentlichen Arbeitsplan mit flexiblen Start- und Endzeiten definieren",
+		"feature2": "Stadt/Zeitzone des Managers suchen und auswählen mit Echtzeituhren",
+		"feature3": "Verfügbarkeitszusammenfassung mit Überschneidungen der Arbeitspläne anzeigen",
+		"feature4": "Mehrsprachige Unterstützung mit automatischer Spracherkennung",
+		"feature5": "Hell- und Dunkelmodus mit responsivem, Mobile-First-Design",
+		"techStack": "Technologie-Stack"
+	}
+}
